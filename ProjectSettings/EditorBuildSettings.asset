@@ -5,46 +5,49 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Weblog.unity
     guid: 630bbe47447034ca28e16e5557841624
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web.unity
     guid: 59988d7c2a79646b1842b0d4fa7ff5a0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web1.unity
     guid: e0bad8dd897584ee8a57bbb440eeb629
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/Web1.1.unity
+    guid: 073dc028dd39a460fb53dd9d0212b8ff
+  - enabled: 1
     path: Assets/Scenes/Web2.unity
     guid: a20dac19195ac4c2a96c0a50d4b3b9a4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web3.unity
     guid: 6f9f14ccf4d2a418d9a2b8fed2087c13
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web4.unity
     guid: 75339a5c988f74a01bf3f362643b80c6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web5.unity
     guid: b818e5012fb90483ea0cd9238784c96b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WebPromo.unity
     guid: ed0d02f09cff34f9584e6a7c59a61afe
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WebAdm.unity
     guid: 1f3e4b00d015b4d07812186a7204dab2
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WebAdmChat.unity
     guid: 425f12b8672404d8c9dd9e504bcd3ea3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web5chat.unity
     guid: 7d17ab2d81d264d1dbc6c556fb9c1115
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web6.unity
     guid: de4050ebcf40745d18e50424e3e392c0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Web7.unity
     guid: 2515328d2f2be4b8bad56756a85b7feb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WebTEST.unity
     guid: 0a596e210cb6f447b8fa78073af45ca5
   - enabled: 1

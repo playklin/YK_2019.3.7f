@@ -13,7 +13,7 @@ public class Butt : MonoBehaviour
     void Start()
     {
         StartCoroutine(GetServerDate());
-        if(Weblog.pass == "789"){g_add.SetActive(false);g_order.SetActive(false);}else{g_add.SetActive(true);g_order.SetActive(true);}
+        if(Weblog.pass == "789"){g_promo.SetActive(false);g_add.SetActive(false);g_order.SetActive(false);}else{g_add.SetActive(true);g_order.SetActive(true);}
         if(Weblog.pass == "123"){g_add.SetActive(true);g_order.SetActive(true);}
     }
 

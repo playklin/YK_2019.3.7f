@@ -120,11 +120,4 @@ public class Spisoknews : MonoBehaviour
     public void ClickHome(){SceneManager.LoadScene("Web");}
     //public void ClickOpenRules(){Rules.SetActive(true);}
     //public void ClickCloseRules(){Rules.SetActive(false);}
-
-    void FixedUpdate()
-    {
-        //float speed8 = 10f;
-        //Quaternion rotationX = Quaternion.AngleAxis(speed8, new Vector3(0,0,-1));// x,y,z
-        //I_krug.transform.rotation *= rotationX;
-    }
 }

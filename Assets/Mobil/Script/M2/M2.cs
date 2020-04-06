@@ -17,7 +17,7 @@ public class M2 : MonoBehaviour
         t_otch.text = PlayerPrefs.GetString("otch");
 
         t_facenumber.text = "№ " + PlayerPrefs.GetString("facenumber");
-        t_street.text = PlayerPrefs.GetString("street") + " ул.,";
+        t_street.text = PlayerPrefs.GetString("street") + " ,";
         t_house.text = "д." + PlayerPrefs.GetString("house");
         t_flat.text = "кв." + PlayerPrefs.GetString("flat");
         t_nachisl.text = PlayerPrefs.GetString("nachisl") + " руб.";
@@ -81,7 +81,7 @@ public class M2 : MonoBehaviour
         form.AddField("pic", picphp); // correct
         using (UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/GetIMG.php",form))
         {yield return www.SendWebRequest(); if (www.isNetworkError || www.isHttpError) { Debug.Log(www.error); }
-         else{ Debug.Log(www.downloadHandler.text);
+         else{ //Debug.Log(www.downloadHandler.text);
              imageString = (www.downloadHandler.text);
              if(imageString.Length > 100){
                  byte[] Bytes = System.Convert.FromBase64String (imageString);

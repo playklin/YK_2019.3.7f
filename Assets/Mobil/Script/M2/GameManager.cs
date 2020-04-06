@@ -8,6 +8,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    /*
     [SerializeField] private GameNotificationsManager notificationsManager;
     private int notificationDelay = 5;
     private string inputtext;
@@ -53,4 +54,5 @@ public class GameManager : MonoBehaviour
             notificationsManager.ScheduleNotification(notification);
         }
     }
+    */
 }

@@ -8,10 +8,11 @@ public class SpisokWeb5Ws : MonoBehaviour {
     public RectTransform prefarb;
     public RectTransform content;
     //public static string idorder = "";
+    public GameObject ContentOpen, ContentWork, ContentClose;
 
     void Start()
     {
-        if(Web5.status == "Открыта"){
+        if(Web5.status == "Открыта"){ContentClose.SetActive(false);ContentWork.SetActive(false);
         StartCoroutine(GetJson(PlayerPrefs.GetString("id_adm"), results => OnReceivedModels(results)));
         }else{}
         //PlayerPrefs.GetString("facenumber")
@@ -66,10 +67,9 @@ public class SpisokWeb5Ws : MonoBehaviour {
             {
                 //Debug.Log(view.id.text + " is clicked!");
                 PlayerPrefs.SetString("id_order", view.id.text);
-                SceneManager.LoadScene("Web5chat");
+                Web5chat.yk_facenumber = view.facenumber.text;
                 Web5.Web5idorder = view.id.text;
-
-
+                SceneManager.LoadScene("Web5chat");
             }
         );
     }

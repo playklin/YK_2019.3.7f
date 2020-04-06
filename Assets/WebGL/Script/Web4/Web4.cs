@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;using UnityEngine.Assertions.Must;
-using System;
+using System;using System.IO;
 using SimpleJSON;
 using UnityEngine.Networking;using UnityEngine.SceneManagement;
 
 public class Web4 : MonoBehaviour
 {
     public InputField If_url,If_urlimg, If_text, if_title, if_text_servic, if_id_servic;
-    public Text t_add_ok, t_add; //t_url;
-    //public RawImage urlimg;
+    public Text t_add_ok, t_add, t_debugLog; //t_url;
+    // Push notification
+    //public InputField if_text;
 
 
     // Start is called before the first frame update
@@ -123,6 +124,23 @@ public class Web4 : MonoBehaviour
              }
             }
         } // correct
+    }
+
+
+    // Push notification
+
+    public InputField if_text, if_subtext, if_url;
+    public void ClickPush(){StartCoroutine(PushNot("1",if_text.text,if_subtext.text,if_url.text));}
+
+    IEnumerator PushNot(string id, string text, string subtext, string url){WWWForm form = new WWWForm(); 
+        form.AddField("id", id);
+        form.AddField("text", text); form.AddField("subtext", subtext); form.AddField("url", url);
+        //using (UnityWebRequest www = UnityWebRequest.Post("http://p905504y.beget.tech/notification1.php",form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/notificationYK.php",form))
+        {yield return www.SendWebRequest(); if (www.isNetworkError || www.isHttpError) { Debug.Log(www.error);}else{
+        //Debug.Log("" + www.downloadHandler.text);
+        t_debugLog.text = www.downloadHandler.text;
+        }}
     }
 
    

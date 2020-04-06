@@ -8,7 +8,7 @@ using UnityEngine.Networking;using UnityEngine.SceneManagement;
 
 public class Weblog : MonoBehaviour
 {
-    public InputField if_log;
+    public InputField if_log, if_pass;
     public Text t_info, t_server_datetime;
 
     public static string pass = "";
@@ -20,9 +20,9 @@ public class Weblog : MonoBehaviour
     }
 
     public void ClicEnter(){
-        if(if_log.text == "123"){pass = "123";SceneManager.LoadScene("Web");}else{t_info.text = "Что то пошло не так";}
-        if(if_log.text == "456"){SceneManager.LoadScene("Web5");}else{t_info.text = "Что то пошло не так";}
-        if(if_log.text == "789"){pass = "789";SceneManager.LoadScene("Web");}else{t_info.text = "Что то пошло не так";}
+        if(if_log.text == "max" && if_pass.text == "123"){pass = "123";SceneManager.LoadScene("Web");}else{t_info.text = "Что то пошло не так";}
+        if(if_log.text == "order" && if_pass.text == "456"){SceneManager.LoadScene("Web5");}else{t_info.text = "Что то пошло не так";}
+        if(if_log.text == "all" && if_pass.text == "789"){pass = "789";SceneManager.LoadScene("Web");}else{t_info.text = "Что то пошло не так";}
     }
     public void ClickTEST(){SceneManager.LoadScene("WebTEST");}//создать опрос
 

@@ -14,9 +14,16 @@ public class Web5 : MonoBehaviour
     public static string status = "Открыта";
     public static string exampel = "Открыта";
     public static string Web5idorder = "";
+    //для появления цифр
+    public static string open_n = "";
+    public static string work_n = "";
+    public static string close_n = "";
    
     void Start()
     {
+        t_count_close.text = close_n;
+        t_count_open.text = open_n;
+        t_count_work.text = work_n;
         StartCoroutine(GetCOUNTykorderOpen("1"));
         StartCoroutine(GetCOUNTykorderWork("1"));
         StartCoroutine(GetCOUNTykorderClose("1"));
@@ -37,6 +44,7 @@ public class Web5 : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/Order/GetCOUNTykorderOpen.php", form);
         {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}
         else{//Debug.Log("" + www.downloadHandler.text);
+        open_n = www.downloadHandler.text;
         t_count_open.text = www.downloadHandler.text;//yield return new WaitForSeconds(0.5f);//if(www.downloadHandler.text == "orderdone"){g_order_no.SetActive(true);}else{}
         }}
     }
@@ -45,6 +53,7 @@ public class Web5 : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/Order/GetCOUNTykorderWork.php", form);
         {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}
         else{//Debug.Log("" + www.downloadHandler.text);
+        work_n = www.downloadHandler.text;
         t_count_work.text = www.downloadHandler.text;//yield return new WaitForSeconds(0.5f);
         }}
     }
@@ -53,6 +62,7 @@ public class Web5 : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/Order/GetCOUNTykorderClose.php", form);
         {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}
         else{//Debug.Log("" + www.downloadHandler.text);
+        close_n = www.downloadHandler.text;
         t_count_close.text = www.downloadHandler.text;//yield return new WaitForSeconds(0.5f);
         }}
     }

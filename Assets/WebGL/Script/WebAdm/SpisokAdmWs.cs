@@ -111,6 +111,7 @@ public class SpisokAdmWs : MonoBehaviour {
                 //Debug.Log(view.titleText.text + " is clicked!");
                 //StartCoroutine(DeletPromo(view.id.text));
                 //PlayerPrefs.SetString("id_servic", view.id.text);
+                WebAdmChat.yk_facenumber = view.facenumber.text;
                 id_yk_adm = view.id.text;
                 SceneManager.LoadScene("WebAdmChat");
 
