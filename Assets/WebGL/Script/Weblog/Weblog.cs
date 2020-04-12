@@ -68,10 +68,25 @@ public class Weblog : MonoBehaviour
                  //butImage.SetActive(true);
              }else{
                  //butImage.SetActive(false);
-             }
+            }
             }
         } // correct
     }
+
+    // не настроено
+
+    IEnumerator GetLP(string log, string pass) { WWWForm form = new WWWForm();
+        form.AddField("log", log);
+        form.AddField("pass", pass);
+        UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/GetLP.php", form);
+        {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}else{
+        //Debug.Log(www.downloadHandler.text);
+        if(if_log.text == "max" && if_pass.text == "123"){pass = "123";SceneManager.LoadScene("Web");}else{t_info.text = "Что то пошло не так";}
+
+        //t_news_ok.text = "OK";
+        }}
+    }
+
 }
 
 

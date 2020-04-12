@@ -5,7 +5,7 @@ using UnityEngine.Networking;using UnityEngine.SceneManagement;
 
 public class Mcounter : MonoBehaviour
 {
-    public Text t_dateXBC, t_dateGBC, t_XBC, t_GBC;
+    public Text t_dateXBC, t_dateGBC, t_XBC, t_GBC, t_playerid;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,8 @@ public class Mcounter : MonoBehaviour
         t_GBC.text = "Счётчик № " + PlayerPrefs.GetString("GBC");
         StartCoroutine(GetXBC(PlayerPrefs.GetString("facenumber")));
         StartCoroutine(GetGBC(PlayerPrefs.GetString("facenumber")));
+
+        t_playerid.text = mainOnS.playerid;
     }
 
     public void ClickMcounterGBC(){SceneManager.LoadScene("McounterGBC");}

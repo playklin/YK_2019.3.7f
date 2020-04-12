@@ -12,7 +12,7 @@ public class SpisokWeb5closeWs : MonoBehaviour {
 
     void Start()
     {
-        if(Web5.status == "Закрыта"){ContentWork.SetActive(false);ContentOpen.SetActive(false);
+        if(Web5.status == "Закрытые заявки"){ContentWork.SetActive(false);ContentOpen.SetActive(false);
         StartCoroutine(GetJson(PlayerPrefs.GetString("id_adm"), results => OnReceivedModels(results)));
         }else{}
         //PlayerPrefs.GetString("facenumber")

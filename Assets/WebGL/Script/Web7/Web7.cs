@@ -41,4 +41,20 @@ public class Web7 : MonoBehaviour
         SceneManager.LoadScene("Web7");}
         }
     }
+
+     // Push notification
+
+    //public InputField if_text;// if_subtext;
+    public void ClickPush(){StartCoroutine(PushNot(if_text.text,"Уведомление по улице: " + if_street.text,""));}
+
+    IEnumerator PushNot(string text, string subtext, string url){WWWForm form = new WWWForm(); 
+        //form.AddField("id", id);
+        form.AddField("text", text); form.AddField("subtext", subtext); form.AddField("url", url);
+        //using (UnityWebRequest www = UnityWebRequest.Post("http://p905504y.beget.tech/notification1.php",form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/notificationYK.php",form))
+        {yield return www.SendWebRequest(); if (www.isNetworkError || www.isHttpError) { Debug.Log(www.error);}else{
+        //Debug.Log("" + www.downloadHandler.text);
+        //t_debugLog.text = www.downloadHandler.text;
+        }}
+    }
 }

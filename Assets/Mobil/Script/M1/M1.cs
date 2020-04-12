@@ -31,7 +31,6 @@ public class M1 : MonoBehaviour
     }
     public void ClickNOinternet(){g_inet_no.SetActive(false);}
     public void ClickCloseEnterCode(){g_enter_code.SetActive(false);}
-    //public void ClickM3(){SceneManager.LoadScene("M3");}
 
     IEnumerator EditEmail(string facenumber,string email){
         WWWForm form = new WWWForm(); form.AddField("_facenumber", facenumber);
@@ -40,11 +39,21 @@ public class M1 : MonoBehaviour
         {yield return www.SendWebRequest(); if (www.isNetworkError || www.isHttpError) { Debug.Log(www.error); g_inet_no.SetActive(true);}
         else{//Debug.Log("" + www.downloadHandler.text);
         //g_enter_code.SetActive(true);
-        SceneManager.LoadScene("M2");
-        //t_title_order.text = www.downloadHandler.text;
-        //PlayerPrefs.SetString("phone", www.downloadHandler.text);
+        StartCoroutine(CreatePlayerID(PlayerPrefs.GetString("facenumber"),mainOnS.playerid));
+        //SceneManager.LoadScene("M2");
         }}
     }
+
+    // sending playerid and facenumber to db
+    IEnumerator CreatePlayerID(string facenumber,string playerid){WWWForm form = new WWWForm(); 
+        form.AddField("facenumber", facenumber);form.AddField("playerid", playerid);
+        using (UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/CreatePlayeridYKos.php",form))
+        {yield return www.SendWebRequest(); if (www.isNetworkError || www.isHttpError) { Debug.Log(www.error);// g_inet_no.SetActive(true);
+        }else{//Debug.Log("playerid: " + www.downloadHandler.text);
+        SceneManager.LoadScene("M2");
+        }}
+    }
+
 
     public void sendEmail()
     {

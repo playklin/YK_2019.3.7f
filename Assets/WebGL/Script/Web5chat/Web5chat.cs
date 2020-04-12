@@ -16,11 +16,13 @@ public class Web5chat : MonoBehaviour
     public InputField if_message;
     public Text t_exampel;
     public static string yk_email = "";
-    public static string yk_facenumber = "defROMA";
+    public static string yk_facenumber = "";
+    public static string yk_playerid = "";
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(GetEmail(yk_facenumber));
+        StartCoroutine(GetPlayerID(yk_facenumber));
         //t_exampel.text = "Заявка № " + Web5.exampel;
         //t_exampel.text = "Заявка № " 
         //Debug.Log(yk_facenumber);
@@ -60,7 +62,7 @@ public class Web5chat : MonoBehaviour
         //setting current time
         //t_date.text = words[0];
         //string _currentTime = words[1];
-        StartCoroutine(CreateMessage(Web5.Web5idorder,"0",if_message.text,"Бухгалтер",_timeData));
+        StartCoroutine(CreateMessage(Web5.Web5idorder,"0",if_message.text,"Диспетчер",_timeData));
         }
     }
 
@@ -71,7 +73,8 @@ public class Web5chat : MonoBehaviour
         {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}
         else{//Debug.Log(" " + www.downloadHandler.text);
         //yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("Web5chat");
+        //SceneManager.LoadScene("Web5chat");
+        StartCoroutine(PushNot(yk_playerid,if_message.text,"Диспетчер"));
         //Debug.Log(" " + www.downloadHandler.text);
         }}
     }
@@ -91,7 +94,7 @@ public class Web5chat : MonoBehaviour
         //setting current time
         //t_date.text = words[0];
         //string _currentTime = words[1];
-        StartCoroutine(CreateMessageCloseO(Web5.Web5idorder,"0","Заявка закрыта","Бухгалтер",_timeData));
+        StartCoroutine(CreateMessageCloseO(Web5.Web5idorder,"0","Заявка закрыта","Диспетчер",_timeData));
         }
     }
 
@@ -114,8 +117,8 @@ public class Web5chat : MonoBehaviour
     {
         MailMessage message = new MailMessage();
 
-        message.Subject = "ЖИЛИЩНИК ЛЕФОРТОВО " + "(Бухгалтерия)";  // Тема письма
-        message.Body = "" + "Бухгалтерия ответила на ваше сообщение " + "\n" + "\n" + "Зайдите в приложение" + "\n" + "\n" + "";
+        message.Subject = "ЖИЛИЩНИК ЛЕФОРТОВО " + "(Диспетчер)";  // Тема письма
+        message.Body = "" + "Диспетчер ответил на ваше сообщение " + "\n" + "\n" + "Зайдите в приложение" + "\n" + "\n" + "";
 
         message.From = new MailAddress("demo.app.test@yandex.ru");
         message.To.Add("demo.app.test@yandex.ru");
@@ -139,7 +142,7 @@ public class Web5chat : MonoBehaviour
 
     }
 
-    // получения почты
+    // получение почты
     IEnumerator GetEmail(string facenumber) {WWWForm form = new WWWForm();
         form.AddField("_facenumber_", facenumber);
         UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/GetEmail.php", form);
@@ -151,5 +154,36 @@ public class Web5chat : MonoBehaviour
         //Debug.Log(" " + www.downloadHandler.text);
         }}
     }
+
+    // получение playerID
+    IEnumerator GetPlayerID(string facenumber) {WWWForm form = new WWWForm();
+        form.AddField("_facenumber_", facenumber);
+        UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/GetPlayerid.php", form);
+        {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}
+        else{//Debug.Log(" " + www.downloadHandler.text);
+        yk_playerid = www.downloadHandler.text;
+        //yield return new WaitForSeconds(0.5f);
+        //SceneManager.LoadScene("Web5chat");
+        //Debug.Log(" " + www.downloadHandler.text);
+        }}
+    }
+
+    // Push notification
+
+    //public InputField if_text;// if_subtext;
+    public void ClickPushByPlayerID(){StartCoroutine(PushNot(yk_playerid,if_message.text,"Диспетчер"));}
+
+    IEnumerator PushNot(string playerid, string text, string subtext){WWWForm form = new WWWForm(); 
+        form.AddField("playerid", playerid);
+        form.AddField("text", text); form.AddField("subtext", subtext);
+        //using (UnityWebRequest www = UnityWebRequest.Post("http://p905504y.beget.tech/notification1.php",form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/notificationBYplayerID.php",form))
+        {yield return www.SendWebRequest(); if (www.isNetworkError || www.isHttpError) { Debug.Log(www.error);}else{
+        //Debug.Log("" + www.downloadHandler.text);
+        SceneManager.LoadScene("Web5chat");
+        //t_debugLog.text = www.downloadHandler.text;
+        }}
+    }
+
 
 }

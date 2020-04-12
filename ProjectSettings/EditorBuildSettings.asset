@@ -48,62 +48,68 @@ EditorBuildSettings:
     path: Assets/Scenes/Web7.unity
     guid: 2515328d2f2be4b8bad56756a85b7feb
   - enabled: 1
+    path: Assets/Scenes/Web8.unity
+    guid: 2418cc29ddba44863808b3b7942b0207
+  - enabled: 1
     path: Assets/Scenes/WebTEST.unity
     guid: 0a596e210cb6f447b8fa78073af45ca5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mlog.unity
     guid: e5660b69635204000997edd3f9a99076
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/M1.unity
     guid: 7f04f195c120e462183d4bf281cc15c9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/M2.unity
     guid: c044cb8f1639d476bb724f9c638a3e21
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/M3.unity
     guid: e650732b6dc814ff9a7d2874f589feaa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Morder.unity
     guid: 83cd99baa1d504ccd9fcc6f350e3e559
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Morderchat.unity
     guid: 118611dd49c4d4b438604bb67b13b395
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mquiz.unity
     guid: 622aada2697574536ad260696f89a10c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mcounter.unity
     guid: ea56ce10ff9414021872c5f3573f6b9d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/McounterXBC.unity
     guid: 3857b42f5e61449d98e0370d8c401bce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mdopservic.unity
     guid: 5ffeffea776c848908b3f94d4b1fc582
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mquizchois.unity
     guid: 46f6dca321146409eba4de19baf15a23
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mnews.unity
     guid: a4acb9305220f4997a3bdffbbfb9a359
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/McounterGBC.unity
     guid: 8085b103003d34629992f35a6f7ce0ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mserviczapros.unity
     guid: 4fba2ec99685542dbbdfb4dc1ab9f757
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Matention.unity
     guid: 95c2bcf3469d84c009cb03448ab3d988
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Madministracia.unity
     guid: 30059a54019334a97944880af3ed758f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mpromo.unity
     guid: 8e6c80fcdda3b476e8628dd457447397
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MadmChat.unity
     guid: 221e1c69887614fb19320e046645d181
+  - enabled: 0
+    path: Assets/Scenes/Mvacance.unity
+    guid: 38f69fd3fd59043fd938aeb5f4adb507
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c8dc58cf885a64203ae738a3b8233cae,
       type: 2}

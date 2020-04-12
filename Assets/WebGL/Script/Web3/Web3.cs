@@ -28,4 +28,20 @@ public class Web3 : MonoBehaviour
         else{t_news_ok.text = "OK";SceneManager.LoadScene("Web3");}
         }
     }
+
+    // Push notification
+
+    //public InputField if_text;// if_subtext;
+    public void ClickPush(){StartCoroutine(PushNot(If_news.text,"Новости",""));}
+
+    IEnumerator PushNot(string text, string subtext, string url){WWWForm form = new WWWForm(); 
+        //form.AddField("id", id);
+        form.AddField("text", text); form.AddField("subtext", subtext); form.AddField("url", url);
+        //using (UnityWebRequest www = UnityWebRequest.Post("http://p905504y.beget.tech/notification1.php",form))
+        using (UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/notificationYK.php",form))
+        {yield return www.SendWebRequest(); if (www.isNetworkError || www.isHttpError) { Debug.Log(www.error);}else{
+        //Debug.Log("" + www.downloadHandler.text);
+        //t_debugLog.text = www.downloadHandler.text;
+        }}
+    }
 }

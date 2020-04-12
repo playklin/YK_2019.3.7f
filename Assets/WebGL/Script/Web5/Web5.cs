@@ -11,7 +11,7 @@ public class Web5 : MonoBehaviour
     //public InputField  If_id_order,if_message;
     public Text t_t;
     public Text t_count_open,t_count_work, t_count_close;
-    public static string status = "Открыта";
+    public static string status = "Не отвеченные заявки";
     public static string exampel = "Открыта";
     public static string Web5idorder = "";
     //для появления цифр
@@ -31,9 +31,9 @@ public class Web5 : MonoBehaviour
         //exampel = "tro";
     }
 
-    public void ClickWork(){status = "В работе";SceneManager.LoadScene("Web5");}
-    public void ClickOpen(){status = "Открыта";SceneManager.LoadScene("Web5");}
-    public void ClickClose(){status = "Закрыта";SceneManager.LoadScene("Web5");}
+    public void ClickWork(){status = "В работе заявки";SceneManager.LoadScene("Web5");}
+    public void ClickOpen(){status = "Не отвеченные заявки";SceneManager.LoadScene("Web5");}
+    public void ClickClose(){status = "Закрытые заявки";SceneManager.LoadScene("Web5");}
     //public void ClickSend(){StartCoroutine(GetServerDate());PlayerPrefs.SetString("id_order", If_id_order.text);}
     //public void ClickExit(){SceneManager.LoadScene("Web");}
     public void ClickExit(){SceneManager.LoadScene("Weblog");}

@@ -25,7 +25,7 @@ public class Madministracia : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/CreateAdm.php", form);
         {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}
         else{//t_order_ok.text = "Заявка отправлена.";
-        Debug.Log("" + www.downloadHandler.text);
+        //Debug.Log("" + www.downloadHandler.text);
         //yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Madministracia");}
         }

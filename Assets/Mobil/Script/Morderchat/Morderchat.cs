@@ -77,6 +77,7 @@ public class Morderchat : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/CreateMessage.php", form);
         {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}
         else{//t_quiz_ok.text = "OK";
+        StartCoroutine(EditStatusOrder(Web5.Web5idorder,"Открыта"));
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("Morderchat");
         //Debug.Log(" " + www.downloadHandler.text);
@@ -100,5 +101,18 @@ public class Morderchat : MonoBehaviour
         //string _currentTime = words[1];
         StartCoroutine(CreateMessage(PlayerPrefs.GetString("id_order"),PlayerPrefs.GetString("facenumber"),if_text_message.text,PlayerPrefs.GetString("name"),_timeData));
         }
+    }
+
+    // для изменения статуса в заявке
+    IEnumerator EditStatusOrder(string id_order,string status) {WWWForm form = new WWWForm();
+        form.AddField("id_order", id_order);form.AddField("status", status);
+        UnityWebRequest www = UnityWebRequest.Post("https://playklin.000webhostapp.com/yk/Order/EditStatusOrder.php", form);
+        {yield return www.SendWebRequest();if (www.isNetworkError || www.isHttpError){Debug.Log(www.error);}
+        else{//Debug.Log(" " + www.downloadHandler.text);
+        //yield return new WaitForSeconds(0.5f);
+        //SceneManager.LoadScene("Web5chat");
+        //StartCoroutine(PushNot(yk_playerid,if_message.text,"Диспетчер"));
+        //Debug.Log(" " + www.downloadHandler.text);
+        }}
     }
 }

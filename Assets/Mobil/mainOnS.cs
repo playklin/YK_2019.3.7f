@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class mainOnS : MonoBehaviour
 {
+  public static string playerid = "";
+
     void Start () {
     // Enable line below to enable logging if you are having issues setting up OneSignal. (logLevel, visualLogLevel)
     // OneSignal.SetLogLevel(OneSignal.LOG_LEVEL.INFO, OneSignal.LOG_LEVEL.INFO);
@@ -14,7 +16,18 @@ public class mainOnS : MonoBehaviour
     .EndInit();
   
      OneSignal.inFocusDisplayType = OneSignal.OSInFocusDisplayOption.Notification;
+     
+     // проверка
+     OneSignal.subscriptionObserver += OneSignal_subscriptionObserver;
     }
+
+    //OneSignal.subscriptionObserver += OneSignal_subscriptionObserver;
+
+      public void OneSignal_subscriptionObserver(OSSubscriptionStateChanges stateChanges) {
+      //Debug.Log("stateChanges: " + stateChanges);
+      Debug.Log("stateChanges.to.userId: " + stateChanges.to.userId); playerid = stateChanges.to.userId;
+      //Debug.Log("stateChanges.to.subscribed: " + stateChanges.to.subscribed);
+   }
 
     // Gets called when the player opens the notification.
     private static void HandleNotificationOpened(OSNotificationOpenedResult result) {

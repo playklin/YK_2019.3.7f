@@ -24,6 +24,7 @@ public class M3 : MonoBehaviour
     public void ClickMquiz(){SceneManager.LoadScene("Mquiz");}
     public void ClickMcounter(){SceneManager.LoadScene("Mcounter");}
     public void ClickMdopservic(){SceneManager.LoadScene("Mdopservic");}
+    public void ClickMvacance(){SceneManager.LoadScene("Mvacance");}
     public void ClickMatention(){SceneManager.LoadScene("Matention");}
     public void ClickMadministracia(){SceneManager.LoadScene("Madministracia");}
     public void ClickMpromo(){SceneManager.LoadScene("Mpromo");}
